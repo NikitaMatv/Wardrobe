@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="91e0c3491c6e4569a34f25424d54e6e2" Name="Diagram1">
+        <EntityTypeShape EntityType="wardrobe_selectionModel.Clothes" Width="1.5" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="wardrobe_selectionModel.CollorId" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="wardrobe_selectionModel.Gender" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="wardrobe_selectionModel.Number" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="wardrobe_selectionModel.Offer" Width="1.5" PointX="5.25" PointY="1.375" />
+        <EntityTypeShape EntityType="wardrobe_selectionModel.RoleId" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="wardrobe_selectionModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="wardrobe_selectionModel.Type" Width="1.5" PointX="0.75" PointY="11.125" />
+        <EntityTypeShape EntityType="wardrobe_selectionModel.User" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="wardrobe_selectionModel.Weather" Width="1.5" PointX="1.5" PointY="14.625" />
+        <AssociationConnector Association="wardrobe_selectionModel.FK_Clothes_CollorId" />
+        <AssociationConnector Association="wardrobe_selectionModel.FK_Clothes_Type" />
+        <AssociationConnector Association="wardrobe_selectionModel.FK_Offer_Clothes" />
+        <AssociationConnector Association="wardrobe_selectionModel.FK_User_Gender" />
+        <AssociationConnector Association="wardrobe_selectionModel.FK_Offer_Number" />
+        <AssociationConnector Association="wardrobe_selectionModel.FK_Offer_User" />
+        <AssociationConnector Association="wardrobe_selectionModel.FK_User_RoleId" />
+        <AssociationConnector Association="wardrobe_selectionModel.FK_Type_Weather" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
