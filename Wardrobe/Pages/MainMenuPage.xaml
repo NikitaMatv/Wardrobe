@@ -9,6 +9,36 @@
       Title="Меню">
 
     <Grid>
-        
+        <Button x:Name="BtLeave" Click="BtLeave_Click"  Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0  -120 20 0 ">Выйти</Button>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
+            <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button x:Name="AddWard" Click="AddWard_Click" Width="250" Height="250">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Source="/Resource/pngwing.com (4).png" Width="220"/>
+                        <TextBlock Text="Добавить новую одежду" TextAlignment="Center" Margin="0 80 0 0 ">
+                        </TextBlock>
+                    </StackPanel>
+             
+
+                </Button>
+                <Button x:Name="ListWard" Click="ListWard_Click" Width="250" Margin="150 0 0 0" Height="250">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Source="/Resource/pngwing.com (2).png"  Width="200"/>
+                        <TextBlock Text="Списой все одежды" TextAlignment="Center">
+                        </TextBlock>
+                    </StackPanel>
+
+                </Button>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button x:Name="WardToDay" Click="WardToDay_Click" Width="250" Height="250">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Source="/Resource/pngwing.com (3).png"  Width="200"/>
+                        <TextBlock Text="Подобрать одежду  " TextAlignment="Center">
+                        </TextBlock>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

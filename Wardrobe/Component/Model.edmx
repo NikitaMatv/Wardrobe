@@ -15,7 +15,7 @@
           <Property Name="Size" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Photo" Type="image" />
         </EntityType>
-        <EntityType Name="CollorId">
+        <EntityType Name="Collor">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -29,26 +29,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Titile" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Number">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nubmers" Type="int" />
-          <Property Name="Row" Type="int" />
-        </EntityType>
-        <EntityType Name="Offer">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Userid" Type="int" Nullable="false" />
-          <Property Name="ClothesId" Type="int" Nullable="false" />
-          <Property Name="NumberId" Type="int" Nullable="false" />
-          <Property Name="Date" Type="datetime" Nullable="false" />
-          <Property Name="IsTaken" Type="bit" />
-        </EntityType>
-        <EntityType Name="RoleId">
+        <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -99,10 +80,10 @@
           <Property Name="Titile" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <Association Name="FK_Clothes_CollorId">
-          <End Role="CollorId" Type="Self.CollorId" Multiplicity="1" />
+          <End Role="Collor" Type="Self.Collor" Multiplicity="1" />
           <End Role="Clothes" Type="Self.Clothes" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CollorId">
+            <Principal Role="Collor">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Clothes">
@@ -119,42 +100,6 @@
             </Principal>
             <Dependent Role="Clothes">
               <PropertyRef Name="TypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Offer_Clothes">
-          <End Role="Clothes" Type="Self.Clothes" Multiplicity="1" />
-          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Clothes">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Offer">
-              <PropertyRef Name="ClothesId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Offer_Number">
-          <End Role="Number" Type="Self.Number" Multiplicity="1" />
-          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Number">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Offer">
-              <PropertyRef Name="NumberId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Offer_User">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Offer">
-              <PropertyRef Name="Userid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -183,10 +128,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_RoleId">
-          <End Role="RoleId" Type="Self.RoleId" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="RoleId">
+            <Principal Role="Role">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="User">
@@ -196,34 +141,20 @@
         </Association>
         <EntityContainer Name="Хранилище wardrobe_selectionModelContainer">
           <EntitySet Name="Clothes" EntityType="Self.Clothes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CollorId" EntityType="Self.CollorId" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Collor" EntityType="Self.Collor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Number" EntityType="Self.Number" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RoleId" EntityType="Self.RoleId" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Weather" EntityType="Self.Weather" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Clothes_CollorId" Association="Self.FK_Clothes_CollorId">
-            <End Role="CollorId" EntitySet="CollorId" />
+            <End Role="Collor" EntitySet="Collor" />
             <End Role="Clothes" EntitySet="Clothes" />
           </AssociationSet>
           <AssociationSet Name="FK_Clothes_Type" Association="Self.FK_Clothes_Type">
             <End Role="Type" EntitySet="Type" />
             <End Role="Clothes" EntitySet="Clothes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Offer_Clothes" Association="Self.FK_Offer_Clothes">
-            <End Role="Clothes" EntitySet="Clothes" />
-            <End Role="Offer" EntitySet="Offer" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Offer_Number" Association="Self.FK_Offer_Number">
-            <End Role="Number" EntitySet="Number" />
-            <End Role="Offer" EntitySet="Offer" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Offer_User" Association="Self.FK_Offer_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Offer" EntitySet="Offer" />
           </AssociationSet>
           <AssociationSet Name="FK_Type_Weather" Association="Self.FK_Type_Weather">
             <End Role="Weather" EntitySet="Weather" />
@@ -234,7 +165,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
           <AssociationSet Name="FK_User_RoleId" Association="Self.FK_User_RoleId">
-            <End Role="RoleId" EntitySet="RoleId" />
+            <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
@@ -244,41 +175,27 @@
       <Schema Namespace="wardrobe_selectionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="wardrobe_selectionEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clothes" EntityType="wardrobe_selectionModel.Clothes" />
-          <EntitySet Name="CollorId" EntityType="wardrobe_selectionModel.CollorId" />
+          <EntitySet Name="Collor" EntityType="wardrobe_selectionModel.Collor" />
           <EntitySet Name="Gender" EntityType="wardrobe_selectionModel.Gender" />
-          <EntitySet Name="Number" EntityType="wardrobe_selectionModel.Number" />
-          <EntitySet Name="Offer" EntityType="wardrobe_selectionModel.Offer" />
-          <EntitySet Name="RoleId" EntityType="wardrobe_selectionModel.RoleId" />
+          <EntitySet Name="Role" EntityType="wardrobe_selectionModel.Role" />
           <EntitySet Name="sysdiagrams" EntityType="wardrobe_selectionModel.sysdiagrams" />
           <EntitySet Name="Type" EntityType="wardrobe_selectionModel.Type" />
           <EntitySet Name="User" EntityType="wardrobe_selectionModel.User" />
           <EntitySet Name="Weather" EntityType="wardrobe_selectionModel.Weather" />
           <AssociationSet Name="FK_Clothes_CollorId" Association="wardrobe_selectionModel.FK_Clothes_CollorId">
-            <End Role="CollorId" EntitySet="CollorId" />
+            <End Role="Collor" EntitySet="Collor" />
             <End Role="Clothes" EntitySet="Clothes" />
           </AssociationSet>
           <AssociationSet Name="FK_Clothes_Type" Association="wardrobe_selectionModel.FK_Clothes_Type">
             <End Role="Type" EntitySet="Type" />
             <End Role="Clothes" EntitySet="Clothes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Offer_Clothes" Association="wardrobe_selectionModel.FK_Offer_Clothes">
-            <End Role="Clothes" EntitySet="Clothes" />
-            <End Role="Offer" EntitySet="Offer" />
-          </AssociationSet>
           <AssociationSet Name="FK_User_Gender" Association="wardrobe_selectionModel.FK_User_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
-          <AssociationSet Name="FK_Offer_Number" Association="wardrobe_selectionModel.FK_Offer_Number">
-            <End Role="Number" EntitySet="Number" />
-            <End Role="Offer" EntitySet="Offer" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Offer_User" Association="wardrobe_selectionModel.FK_Offer_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Offer" EntitySet="Offer" />
-          </AssociationSet>
           <AssociationSet Name="FK_User_RoleId" Association="wardrobe_selectionModel.FK_User_RoleId">
-            <End Role="RoleId" EntitySet="RoleId" />
+            <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
           <AssociationSet Name="FK_Type_Weather" Association="wardrobe_selectionModel.FK_Type_Weather">
@@ -295,17 +212,16 @@
           <Property Name="ColourId" Type="Int32" Nullable="false" />
           <Property Name="Size" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="CollorId" Relationship="wardrobe_selectionModel.FK_Clothes_CollorId" FromRole="Clothes" ToRole="CollorId" />
+          <NavigationProperty Name="Collor" Relationship="wardrobe_selectionModel.FK_Clothes_CollorId" FromRole="Clothes" ToRole="Collor" />
           <NavigationProperty Name="Type" Relationship="wardrobe_selectionModel.FK_Clothes_Type" FromRole="Clothes" ToRole="Type" />
-          <NavigationProperty Name="Offer" Relationship="wardrobe_selectionModel.FK_Offer_Clothes" FromRole="Clothes" ToRole="Offer" />
         </EntityType>
-        <EntityType Name="CollorId">
+        <EntityType Name="Collor">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Titile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Clothes" Relationship="wardrobe_selectionModel.FK_Clothes_CollorId" FromRole="CollorId" ToRole="Clothes" />
+          <NavigationProperty Name="Clothes" Relationship="wardrobe_selectionModel.FK_Clothes_CollorId" FromRole="Collor" ToRole="Clothes" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -315,36 +231,13 @@
           <Property Name="Titile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="wardrobe_selectionModel.FK_User_Gender" FromRole="Gender" ToRole="User" />
         </EntityType>
-        <EntityType Name="Number">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nubmers" Type="Int32" />
-          <Property Name="Row" Type="Int32" />
-          <NavigationProperty Name="Offer" Relationship="wardrobe_selectionModel.FK_Offer_Number" FromRole="Number" ToRole="Offer" />
-        </EntityType>
-        <EntityType Name="Offer">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Userid" Type="Int32" Nullable="false" />
-          <Property Name="ClothesId" Type="Int32" Nullable="false" />
-          <Property Name="NumberId" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsTaken" Type="Boolean" />
-          <NavigationProperty Name="Clothes" Relationship="wardrobe_selectionModel.FK_Offer_Clothes" FromRole="Offer" ToRole="Clothes" />
-          <NavigationProperty Name="Number" Relationship="wardrobe_selectionModel.FK_Offer_Number" FromRole="Offer" ToRole="Number" />
-          <NavigationProperty Name="User" Relationship="wardrobe_selectionModel.FK_Offer_User" FromRole="Offer" ToRole="User" />
-        </EntityType>
-        <EntityType Name="RoleId">
+        <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="wardrobe_selectionModel.FK_User_RoleId" FromRole="RoleId" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="wardrobe_selectionModel.FK_User_RoleId" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -384,8 +277,7 @@
           <Property Name="DateReg" Type="DateTime" Precision="0" />
           <Property Name="RoleId" Type="Int32" />
           <NavigationProperty Name="Gender" Relationship="wardrobe_selectionModel.FK_User_Gender" FromRole="User" ToRole="Gender" />
-          <NavigationProperty Name="Offer" Relationship="wardrobe_selectionModel.FK_Offer_User" FromRole="User" ToRole="Offer" />
-          <NavigationProperty Name="RoleId1" Relationship="wardrobe_selectionModel.FK_User_RoleId" FromRole="User" ToRole="RoleId" />
+          <NavigationProperty Name="Role" Relationship="wardrobe_selectionModel.FK_User_RoleId" FromRole="User" ToRole="Role" />
         </EntityType>
         <EntityType Name="Weather">
           <Key>
@@ -396,10 +288,10 @@
           <NavigationProperty Name="Type" Relationship="wardrobe_selectionModel.FK_Type_Weather" FromRole="Weather" ToRole="Type" />
         </EntityType>
         <Association Name="FK_Clothes_CollorId">
-          <End Type="wardrobe_selectionModel.CollorId" Role="CollorId" Multiplicity="1" />
+          <End Type="wardrobe_selectionModel.Collor" Role="Collor" Multiplicity="1" />
           <End Type="wardrobe_selectionModel.Clothes" Role="Clothes" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CollorId">
+            <Principal Role="Collor">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Clothes">
@@ -419,18 +311,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Offer_Clothes">
-          <End Type="wardrobe_selectionModel.Clothes" Role="Clothes" Multiplicity="1" />
-          <End Type="wardrobe_selectionModel.Offer" Role="Offer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Clothes">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Offer">
-              <PropertyRef Name="ClothesId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_User_Gender">
           <End Type="wardrobe_selectionModel.Gender" Role="Gender" Multiplicity="1" />
           <End Type="wardrobe_selectionModel.User" Role="User" Multiplicity="*" />
@@ -443,35 +323,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Offer_Number">
-          <End Type="wardrobe_selectionModel.Number" Role="Number" Multiplicity="1" />
-          <End Type="wardrobe_selectionModel.Offer" Role="Offer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Number">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Offer">
-              <PropertyRef Name="NumberId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Offer_User">
-          <End Type="wardrobe_selectionModel.User" Role="User" Multiplicity="1" />
-          <End Type="wardrobe_selectionModel.Offer" Role="Offer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Offer">
-              <PropertyRef Name="Userid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_User_RoleId">
-          <End Type="wardrobe_selectionModel.RoleId" Role="RoleId" Multiplicity="0..1" />
+          <End Type="wardrobe_selectionModel.Role" Role="Role" Multiplicity="0..1" />
           <End Type="wardrobe_selectionModel.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="RoleId">
+            <Principal Role="Role">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="User">
@@ -491,7 +347,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -508,9 +364,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CollorId">
-            <EntityTypeMapping TypeName="wardrobe_selectionModel.CollorId">
-              <MappingFragment StoreEntitySet="CollorId">
+          <EntitySetMapping Name="Collor">
+            <EntityTypeMapping TypeName="wardrobe_selectionModel.Collor">
+              <MappingFragment StoreEntitySet="Collor">
                 <ScalarProperty Name="Titile" ColumnName="Titile" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -524,30 +380,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Number">
-            <EntityTypeMapping TypeName="wardrobe_selectionModel.Number">
-              <MappingFragment StoreEntitySet="Number">
-                <ScalarProperty Name="Row" ColumnName="Row" />
-                <ScalarProperty Name="Nubmers" ColumnName="Nubmers" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Offer">
-            <EntityTypeMapping TypeName="wardrobe_selectionModel.Offer">
-              <MappingFragment StoreEntitySet="Offer">
-                <ScalarProperty Name="IsTaken" ColumnName="IsTaken" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="NumberId" ColumnName="NumberId" />
-                <ScalarProperty Name="ClothesId" ColumnName="ClothesId" />
-                <ScalarProperty Name="Userid" ColumnName="Userid" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RoleId">
-            <EntityTypeMapping TypeName="wardrobe_selectionModel.RoleId">
-              <MappingFragment StoreEntitySet="RoleId">
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="wardrobe_selectionModel.Role">
+              <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

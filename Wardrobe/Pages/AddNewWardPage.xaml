@@ -1,0 +1,39 @@
+﻿<Page x:Class="Wardrobe.Pages.AddNewWardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Wardrobe.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Добавление новой одежды">
+
+    <Grid>
+        <Border Background="LightGray" BorderBrush="Black" CornerRadius="15" Width="700" Height="400">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Margin="20 0 0 0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="0 10 0 0" FontSize="20">Тип одежды</TextBlock>
+                        <Button Width="25" ToolTip="Добавить новый тип одежды" x:Name="BAddType" Click="BAddType_Click">+</Button>
+                    </StackPanel>
+                    <ComboBox DisplayMemberPath="Title" x:Name="CbType" Margin="0 10 0 0" Width="200" Height="30" FontSize="20" SelectionChanged="CbType_SelectionChanged"></ComboBox>
+                    <TextBlock Margin="0 10 0 0" FontSize="20"> Цвет</TextBlock>
+                    <ComboBox DisplayMemberPath="Titile" x:Name="CbCollor" Margin="0 10 0 0" Width="200" Height="30" FontSize="20"></ComboBox>
+                    <TextBlock    Margin="0 10 0 0" FontSize="20"> Развер</TextBlock>
+                    <TextBox x:Name="TbSize" Margin="0 10 0 0" Text="{Binding Size}" Width="200" Height="30" FontSize="20"></TextBox>
+                </StackPanel>
+                <StackPanel  Margin="20 0 0 0">
+                    <Image Width="200" Height="200" Source="{Binding Photo}"></Image>
+                    <Button x:Name="AddPhoto" Click="AddPhoto_Click">Добавить</Button>
+                </StackPanel>
+                <StackPanel  Margin="20 0 0 0">
+                    <TextBlock    Margin="0 10 0 0" FontSize="20"> Погода</TextBlock>
+                    <TextBox Text="{Binding Weather.Title}" IsReadOnly="True" Margin="0 10 0 0" Width="200" x:Name="TbWeather" Height="30" FontSize="20"></TextBox>
+                    <Button Margin="0 10 0 0" Click="Button_Click">Добавить</Button>
+                    <Button Margin="0 10 0 0" Click="Button_Click_1">Вернуться</Button>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

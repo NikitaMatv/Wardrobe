@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wardrobe.Component;
 
 namespace Wardrobe.Pages
 {
@@ -23,6 +24,26 @@ namespace Wardrobe.Pages
         public MainMenuPage()
         {
             InitializeComponent();
+        }
+
+        private void AddWard_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddNewWardPage(new Clothes()));
+        }
+
+        private void BtLeave_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MenuPage(new User()));
+        }
+
+        private void WardToDay_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddNewWardPage(new Clothes()));
+        }
+
+        private void ListWard_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddNewWardPage(new Clothes()));
         }
     }
 }

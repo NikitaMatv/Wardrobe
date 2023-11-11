@@ -26,11 +26,9 @@ namespace Wardrobe.Component
         }
     
         public virtual DbSet<Clothes> Clothes { get; set; }
-        public virtual DbSet<CollorId> CollorId { get; set; }
+        public virtual DbSet<Collor> Collor { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
-        public virtual DbSet<Number> Number { get; set; }
-        public virtual DbSet<Offer> Offer { get; set; }
-        public virtual DbSet<RoleId> RoleId { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Type> Type { get; set; }
         public virtual DbSet<User> User { get; set; }

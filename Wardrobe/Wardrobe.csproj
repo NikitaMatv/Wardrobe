@@ -75,7 +75,7 @@
     <Compile Include="Component\Clothes.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Component\CollorId.cs">
+    <Compile Include="Component\Collor.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Component\Gender.cs">
@@ -96,13 +96,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Component\Number.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Component\Offer.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Component\RoleId.cs">
+    <Compile Include="Component\Role.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Component\sysdiagrams.cs">
@@ -121,6 +115,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddNewWardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddTypeClothesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,6 +141,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddNewWardPage.xaml.cs">
+      <DependentUpon>AddNewWardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddTypeClothesPage.xaml.cs">
+      <DependentUpon>AddTypeClothesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
     </Compile>
@@ -206,6 +214,9 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resource\pngwing.com %282%29.png" />
+    <Resource Include="Resource\pngwing.com %283%29.png" />
+    <Resource Include="Resource\pngwing.com %284%29.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

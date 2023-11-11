@@ -14,21 +14,13 @@ namespace Wardrobe.Component
     
     public partial class Clothes
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Clothes()
-        {
-            this.Offer = new HashSet<Offer>();
-        }
-    
         public int id { get; set; }
         public int TypeId { get; set; }
         public int ColourId { get; set; }
         public string Size { get; set; }
         public byte[] Photo { get; set; }
     
-        public virtual CollorId CollorId { get; set; }
+        public virtual Collor Collor { get; set; }
         public virtual Type Type { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Offer> Offer { get; set; }
     }
 }

@@ -12,17 +12,18 @@ namespace Wardrobe.Component
     using System;
     using System.Collections.Generic;
     
-    public partial class Offer
+    public partial class Collor
     {
-        public int id { get; set; }
-        public int Userid { get; set; }
-        public int ClothesId { get; set; }
-        public int NumberId { get; set; }
-        public System.DateTime Date { get; set; }
-        public Nullable<bool> IsTaken { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Collor()
+        {
+            this.Clothes = new HashSet<Clothes>();
+        }
     
-        public virtual Clothes Clothes { get; set; }
-        public virtual Number Number { get; set; }
-        public virtual User User { get; set; }
+        public int Id { get; set; }
+        public string Titile { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Clothes> Clothes { get; set; }
     }
 }
