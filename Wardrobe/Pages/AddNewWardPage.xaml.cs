@@ -31,6 +31,7 @@ namespace Wardrobe.Pages
             DataContext = contextclothes;
             CbCollor.ItemsSource = App.DB.Collor.ToList();
             CbType.ItemsSource = App.DB.Type.ToList();
+           
         }
 
         private void BAddType_Click(object sender, RoutedEventArgs e)
@@ -60,25 +61,7 @@ namespace Wardrobe.Pages
         {
             try
             {
-                var error = "";
-                if (CbType.SelectedItem != null)
-                {
-                    var Type = App.DB.Type.FirstOrDefault(x => x == CbType.SelectedValue);
-                    contextclothes.Type = Type;
-                }
-                else
-                {
-                    error += "Выберете тип одежды \n";
-                }
-                if (CbType.SelectedItem != null)
-                {
-                    var collor = App.DB.Collor.FirstOrDefault(x => x == CbCollor.SelectedValue);
-                    contextclothes.Collor = collor;
-                }
-                else
-                {
-                    error += "Выберете тип одежды \n";
-                }
+                var error = "";        
                 if (contextclothes.Photo == null)
                 {
                     error += "Добавте фото одежды \n";
@@ -100,7 +83,9 @@ namespace Wardrobe.Pages
                     MessageBox.Show(error);
                     return;
                 }
+                if(contextclothes.id == 0)
                 App.DB.Clothes.Add(contextclothes);
+                
                 App.DB.SaveChanges();
                 NavigationService.Navigate(new MainMenuPage());
             }

@@ -16,11 +16,11 @@
                         <TextBlock Margin="0 10 0 0" FontSize="20">Тип одежды</TextBlock>
                         <Button Width="25" ToolTip="Добавить новый тип одежды" x:Name="BAddType" Click="BAddType_Click">+</Button>
                     </StackPanel>
-                    <ComboBox DisplayMemberPath="Title" x:Name="CbType" Margin="0 10 0 0" Width="200" Height="30" FontSize="20" SelectionChanged="CbType_SelectionChanged"></ComboBox>
+                    <ComboBox DisplayMemberPath="Title" x:Name="CbType" SelectedItem="{Binding Type}" Margin="0 10 0 0" Width="200" Height="30" FontSize="20" SelectionChanged="CbType_SelectionChanged"></ComboBox>
                     <TextBlock Margin="0 10 0 0" FontSize="20"> Цвет</TextBlock>
-                    <ComboBox DisplayMemberPath="Titile" x:Name="CbCollor" Margin="0 10 0 0" Width="200" Height="30" FontSize="20"></ComboBox>
-                    <TextBlock    Margin="0 10 0 0" FontSize="20"> Развер</TextBlock>
-                    <TextBox x:Name="TbSize" Margin="0 10 0 0" Text="{Binding Size}" Width="200" Height="30" FontSize="20"></TextBox>
+                    <ComboBox DisplayMemberPath="Titile" x:Name="CbCollor"  SelectedItem="{Binding Collor}"  Margin="0 10 0 0" Width="200" Height="30" FontSize="20"></ComboBox>
+                    <TextBlock    Margin="0 10 0 0" FontSize="20" ToolTip="Размер укажите буквой"> Размер</TextBlock>
+                    <TextBox x:Name="TbSize" Margin="0 10 0 0" MaxLength="1" Text="{Binding Size}" Width="200" Height="30" FontSize="20"></TextBox>
                 </StackPanel>
                 <StackPanel  Margin="20 0 0 0">
                     <Image Width="200" Height="200" Source="{Binding Photo}"></Image>
@@ -28,8 +28,8 @@
                 </StackPanel>
                 <StackPanel  Margin="20 0 0 0">
                     <TextBlock    Margin="0 10 0 0" FontSize="20"> Погода</TextBlock>
-                    <TextBox Text="{Binding Weather.Title}" IsReadOnly="True" Margin="0 10 0 0" Width="200" x:Name="TbWeather" Height="30" FontSize="20"></TextBox>
-                    <Button Margin="0 10 0 0" Click="Button_Click">Добавить</Button>
+                    <TextBox Text="{Binding Type.Weather.Titile}" IsReadOnly="True" Margin="0 10 0 0" Width="200" x:Name="TbWeather" Height="30" FontSize="20"></TextBox>
+                    <Button Margin="0 10 0 0" Click="Button_Click">Сохранить</Button>
                     <Button Margin="0 10 0 0" Click="Button_Click_1">Вернуться</Button>
                 </StackPanel>
 

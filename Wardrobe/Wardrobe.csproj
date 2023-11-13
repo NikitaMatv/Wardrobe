@@ -139,6 +139,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\WardListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AddNewWardPage.xaml.cs">
@@ -158,6 +162,9 @@
     </Compile>
     <Compile Include="Pages\RestorePage.xaml.cs">
       <DependentUpon>RestorePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WardListPage.xaml.cs">
+      <DependentUpon>WardListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
