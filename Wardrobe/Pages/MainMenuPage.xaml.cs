@@ -38,7 +38,7 @@ namespace Wardrobe.Pages
 
         private void WardToDay_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddNewWardPage(new Clothes()));
+            NavigationService.Navigate(new SelectClothesListPage());
         }
 
         private void ListWard_Click(object sender, RoutedEventArgs e)

@@ -13,7 +13,8 @@ namespace Wardrobe
     /// </summary>
     public partial class App : Application
     {
-        public static wardrobe_selectionEntities DB = new wardrobe_selectionEntities();
+        //public static wardrobe_selectionEntities DB = new wardrobe_selectionEntities();
+        public static wardrobe_selectionEntities1 DB = new wardrobe_selectionEntities1();
         public static User LoggedUser;
     }
 }
