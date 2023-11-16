@@ -12,31 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Wardrobe.Component;
 
-namespace Wardrobe.Pages
+namespace WardrobeAdmin.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для WardListPage.xaml
+    /// Логика взаимодействия для MenuPages.xaml
     /// </summary>
-    public partial class WardListPage : Page
+    public partial class MenuPages : Page
     {
-        public WardListPage()
+        public MenuPages()
         {
             InitializeComponent();
-            LvWard.ItemsSource = App.DB.Clothes.Where(x => x.UserId == App.LoggedUser.id).ToList();      
         }
+        
 
         private void BtLeave_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainMenuPage());
+            NavigationService.Navigate(new MenuPage(new User()));
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void ListWard_Click(object sender, RoutedEventArgs e)
         {
-            var selectitem = (sender as MenuItem).DataContext as Clothes;
-            NavigationService.Navigate(new AddNewWardPage(selectitem));
+            NavigationService.Navigate(new WardListPage());
         }
-
     }
 }

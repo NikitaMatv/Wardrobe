@@ -6,7 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Wardrobe.Component;
-namespace Wardrobe
+
+namespace WardrobeAdmin
 {
     /// <summary>
     /// Логика взаимодействия для App.xaml

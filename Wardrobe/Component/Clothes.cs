@@ -19,8 +19,10 @@ namespace Wardrobe.Component
         public int ColourId { get; set; }
         public string Size { get; set; }
         public byte[] Photo { get; set; }
+        public Nullable<int> UserId { get; set; }
     
         public virtual Collor Collor { get; set; }
         public virtual Type Type { get; set; }
+        public virtual User User { get; set; }
     }
 }

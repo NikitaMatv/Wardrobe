@@ -24,8 +24,8 @@ namespace Wardrobe.Pages
         public SelectClothesListPage()
         {
             InitializeComponent();
-            CbWeather.ItemsSource = App.DB.Weather.ToList();
-            LvWard.ItemsSource = App.DB.Clothes.ToList();
+            CbWeather.ItemsSource = App.DB.Clothes.Where(x => x.UserId == App.LoggedUser.id).ToList();
+            SpStart.Visibility = Visibility.Visible;
         }
 
   
@@ -39,7 +39,7 @@ namespace Wardrobe.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
           
-            IEnumerable<Clothes> filterService = App.DB.Clothes.ToList();
+            IEnumerable<Clothes> filterService = App.DB.Clothes.Where(x => x.UserId == App.LoggedUser.id).ToList();
             if (CbWeather.Text != "")
             {
                 filterService = filterService.Where(x => x.Type.Weather.Titile == CbWeather.Text).ToList();
@@ -52,6 +52,15 @@ namespace Wardrobe.Pages
                 filterService = filterService.Where(x => x.Type.TemperatureMin < number && x.Type.TemperatureMax > number).ToList();
             }
             LvWard.ItemsSource = filterService.ToList();
+            SpStart.Visibility = Visibility.Collapsed;
+            if (filterService.Count() == 0)
+            {
+                SpCount0.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                SpCount0.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

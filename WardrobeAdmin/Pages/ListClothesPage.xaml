@@ -1,33 +1,27 @@
-﻿<Page x:Class="Wardrobe.Pages.SelectClothesListPage"
+﻿<Page x:Class="WardrobeAdmin.Pages.ListClothesPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Wardrobe.Pages"
+      xmlns:local="clr-namespace:WardrobeAdmin.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Подбор одежды по погоде">
+     Title="Список одежды">
 
     <Grid>
-        <StackPanel Margin="10 0 0 0">
-            <StackPanel Orientation="Horizontal">
-                <ComboBox x:Name="CbWeather" Width="150"  DisplayMemberPath="Titile" FontSize="22"></ComboBox>
-                <TextBlock FontSize="20" Foreground="White" Margin="10 0 5 0" VerticalAlignment="Center" TextAlignment="Center">Температура: </TextBlock>
-                <TextBox x:Name="TbTemperatura" MaxLength="3" FontSize="20" TextAlignment="Center" Width="50" Height="32"></TextBox>
-                <Button  Height="30" Width="100" Click="Button_Click">Подобрать</Button>
-              
-            </StackPanel>
-            <Button x:Name="BtLeave" Click="BtLeave_Click"  Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 -35 20 0 ">Выйти</Button>
-            <StackPanel Height="400" Width="700" x:Name="SpCount0" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed">
-                <TextBlock Text="У вас в гардиробе нету одежды на эту погоду!" TextWrapping="Wrap" FontSize="60" TextAlignment="Center" Width="650" VerticalAlignment="Center" Height="200" Margin=" 0 100 0 0"></TextBlock>
-            </StackPanel>
-            <StackPanel Height="400" Width="700" x:Name="SpStart" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed">
-                <TextBlock Text="Заполните погоду что-бы подорать одежду!" TextWrapping="Wrap" FontSize="60" TextAlignment="Center" Width="650" VerticalAlignment="Center" Height="200" Margin=" 0 100 0 0"></TextBlock>
-            </StackPanel>
+        <StackPanel>
+            <Button x:Name="BtLeave" Click="BtLeave_Click"  Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0  0 20 0 ">Выйти</Button>
+            <ComboBox x:Name="CbWeather" Width="150"  DisplayMemberPath="Name" FontSize="22" SelectionChanged="CbWeather_SelectionChanged"></ComboBox>
+           
             <ListView x:Name="LvWard" Background="Transparent" BorderBrush="Transparent" Margin="5" Height="490">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10" Background="White">
+                            <Border.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Изменить" Click="MenuItem_Click"></MenuItem>
+                                </ContextMenu>
+                            </Border.ContextMenu>
                             <Grid Width="auto">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="300"></ColumnDefinition>

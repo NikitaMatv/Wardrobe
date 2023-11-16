@@ -1,0 +1,38 @@
+﻿<Window x:Class="WardrobeAdmin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WardrobeAdmin"
+        mc:Ignorable="d"
+       Title="MainWindow" Height="800" Width="1200" ResizeMode="CanMinimize" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" >
+    <Grid Background="#af5350">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Border CornerRadius="40" Width="180" Height="170" Margin="20 0 0 0" Background="#FFEDEDED" BorderBrush="White" HorizontalAlignment="Left">
+            <Image Source="/Resource/d0267da88c0e909acb84e8e392210abc.jpg"  Width="140" HorizontalAlignment="Left" Margin="20 0 10 0" />
+        </Border>
+        <Border CornerRadius="50" Margin="0 0 0 0" Background="White" Width="auto" HorizontalAlignment="Center" Height="70">
+            <StackPanel  HorizontalAlignment="Left" Width="auto" >
+                <TextBlock FontSize="40" TextAlignment="Center"  Margin="10 0 0 0" x:Name="TbNamePage"></TextBlock>
+            </StackPanel>
+        </Border>
+        <Border CornerRadius="10" Width="auto" Height="auto"  HorizontalAlignment="Right" VerticalAlignment="Top" Background="LightGray" Margin="0 0 0 0">
+            <StackPanel Orientation="Horizontal" >
+                <Button Width="40" Height="35" Background="Transparent" Margin="0 0 0 0" BorderBrush="Transparent" Click="Button_Click">
+                    <Image Source="/Resource/pngwing.com (1).png" />
+                </Button>
+                <Button Width="40" Height="34" Background="Transparent" Margin="0 0 0 0" BorderBrush="Transparent" Click="Button_Click_1">
+                    <Image Source="/Resource/pngwing.com.png" />
+                </Button>
+            </StackPanel>
+        </Border>
+        <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated"></Frame>
+        <StackPanel Grid.Row="2" ></StackPanel>
+    </Grid>
+</Window>

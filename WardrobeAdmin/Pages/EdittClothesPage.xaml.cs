@@ -16,22 +16,22 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Wardrobe.Component;
 
-namespace Wardrobe.Pages
+namespace WardrobeAdmin.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddNewWardPage.xaml
+    /// Логика взаимодействия для EdittClothesPage.xaml
     /// </summary>
-    public partial class AddNewWardPage : Page
+    public partial class EdittClothesPage : Page
     {
         Clothes contextclothes;
-        public AddNewWardPage(Clothes clothes)
+        public EdittClothesPage(Clothes clothes)
         {
             InitializeComponent();
             contextclothes = clothes;
             DataContext = contextclothes;
             CbCollor.ItemsSource = App.DB.Collor.ToList();
             CbType.ItemsSource = App.DB.Type.ToList();
-           
+
         }
 
         private void BAddType_Click(object sender, RoutedEventArgs e)
@@ -61,7 +61,7 @@ namespace Wardrobe.Pages
         {
             try
             {
-                var error = "";        
+                var error = "";
                 if (contextclothes.Photo == null)
                 {
                     error += "Добавте фото одежды \n";
@@ -82,14 +82,9 @@ namespace Wardrobe.Pages
                 {
                     MessageBox.Show(error);
                     return;
-                }
-                if(contextclothes.id == 0)
-                {
-                    contextclothes.UserId = App.LoggedUser.id;
-                    App.DB.Clothes.Add(contextclothes);
-                }               
+                }              
                 App.DB.SaveChanges();
-                NavigationService.Navigate(new MainMenuPage());
+                NavigationService.Navigate(new MenuPages());
             }
             catch
             {
@@ -99,14 +94,14 @@ namespace Wardrobe.Pages
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainMenuPage());
+            NavigationService.Navigate(new MenuPages());
         }
 
         private void CbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                var Type = App.DB.Type.FirstOrDefault(x => x.id == CbType.SelectedIndex +2 );
+                var Type = App.DB.Type.FirstOrDefault(x => x.id == CbType.SelectedIndex + 2);
                 if (Type != null)
                     TbWeather.Text = (App.DB.Weather.FirstOrDefault(x => x.Id == Type.WeatherId) as Weather).Titile.ToString();
             }

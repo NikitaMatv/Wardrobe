@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wardrobe", "Wardrobe\Wardrobe.csproj", "{12B27909-7855-4C13-9658-77ED1B266DA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WardrobeAdmin", "WardrobeAdmin\WardrobeAdmin.csproj", "{485C56E2-EC18-40E9-A24C-F1D9547D72EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{12B27909-7855-4C13-9658-77ED1B266DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12B27909-7855-4C13-9658-77ED1B266DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12B27909-7855-4C13-9658-77ED1B266DA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{485C56E2-EC18-40E9-A24C-F1D9547D72EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485C56E2-EC18-40E9-A24C-F1D9547D72EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485C56E2-EC18-40E9-A24C-F1D9547D72EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485C56E2-EC18-40E9-A24C-F1D9547D72EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
