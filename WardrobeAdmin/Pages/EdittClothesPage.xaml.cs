@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Wardrobe.Component;
+using WardrobeAdmin.Components;
 
 namespace WardrobeAdmin.Pages
 {
@@ -34,10 +34,7 @@ namespace WardrobeAdmin.Pages
 
         }
 
-        private void BAddType_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new AddTypeClothesPage(new Component.Type()));
-        }
+      
 
         private void AddPhoto_Click(object sender, RoutedEventArgs e)
         {

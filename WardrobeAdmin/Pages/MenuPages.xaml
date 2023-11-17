@@ -11,13 +11,12 @@
     <Grid>
         <Button x:Name="BtLeave" Click="BtLeave_Click"  Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0  -120 20 0 ">Выйти</Button>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
-            <Button x:Name="ListWard" Click="ListWard_Click" Width="250" Margin="150 0 0 0" Height="250">
+            <Button x:Name="ListWard" Click="ListWard_Click" Width="250" Margin="0 0 0 0" Height="250">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Image Source="/Resource/pngwing.com (2).png"  Width="200"/>
-                    <TextBlock Text="Списой все одежды пользователей" TextAlignment="Center">
+                    <TextBlock Text="Списой одежды пользователей" TextAlignment="Center">
                     </TextBlock>
                 </StackPanel>
-
             </Button>
         </StackPanel>
     </Grid>

@@ -28,12 +28,12 @@ namespace WardrobeAdmin.Pages
 
         private void BtLeave_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MenuPage(new User()));
+            NavigationService.GoBack();
         }
 
         private void ListWard_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new WardListPage());
+            NavigationService.Navigate(new ListClothesPage());
         }
     }
 }

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WardrobeAdmin.Components;
+using WardrobeAdmin.Pages;
 
 namespace WardrobeAdmin.Pages
 {
@@ -25,12 +27,40 @@ namespace WardrobeAdmin.Pages
             InitializeComponent();
 
             CbWeather.ItemsSource = App.DB.User.ToList();
-      
+            CbWeather.SelectedIndex = 0;
+            LvWard.ItemsSource = App.DB.Clothes.Where(x => x.User.Name == CbWeather.Text).ToList();
+            if (LvWard.Items.Count != 0)
+            {
+                SpCount0.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                SpCount0.Visibility = Visibility.Visible;
+            }
         }
 
-        private void CbWeather_SelectionChanged(object sender, SelectionChangedEventArgs e)
+       
+        private void BtLeave_Click(object sender, RoutedEventArgs e)
         {
-            CbWeather.ItemsSource = App.DB.Clothes.Where(x => x.User.Name == CbWeather.Text).ToList();
+            NavigationService.GoBack();
+        }
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var selectitem = (sender as MenuItem).DataContext as Clothes;
+            NavigationService.Navigate(new EdittClothesPage(selectitem));
+        }
+
+        private void BtLeave_Click_1(object sender, RoutedEventArgs e)
+        {
+            LvWard.ItemsSource = App.DB.Clothes.Where(x => x.User.Name == CbWeather.Text).ToList();
+            if(LvWard.Items.Count != 0)
+            {
+                SpCount0.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                SpCount0.Visibility = Visibility.Visible;
+            }
         }
     }
 }

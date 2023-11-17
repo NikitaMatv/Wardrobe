@@ -11,8 +11,13 @@
     <Grid>
         <StackPanel>
             <Button x:Name="BtLeave" Click="BtLeave_Click"  Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0  0 20 0 ">Выйти</Button>
-            <ComboBox x:Name="CbWeather" Width="150"  DisplayMemberPath="Name" FontSize="22" SelectionChanged="CbWeather_SelectionChanged"></ComboBox>
-           
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <ComboBox x:Name="CbWeather" Width="150"  DisplayMemberPath="Name" FontSize="22" ></ComboBox>
+                <Button x:Name="BtSelect" Click="BtLeave_Click_1"  Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10  0 0 0 ">Найти</Button>
+            </StackPanel>
+            <StackPanel Height="400" Width="700" x:Name="SpCount0" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed">
+                <TextBlock Text="В гардиробе нету одежды!" TextWrapping="Wrap" FontSize="60" TextAlignment="Center" Width="650" VerticalAlignment="Center" Height="200" Margin=" 0 100 0 0"></TextBlock>
+            </StackPanel>
             <ListView x:Name="LvWard" Background="Transparent" BorderBrush="Transparent" Margin="5" Height="490">
                 <ListView.ItemTemplate>
                     <DataTemplate>

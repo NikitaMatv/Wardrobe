@@ -111,6 +111,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model122.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Component\PartialClass\Type.cs" />
     <Compile Include="Component\Role.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

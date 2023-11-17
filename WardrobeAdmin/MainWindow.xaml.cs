@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WardrobeAdmin.Components;
 using WardrobeAdmin.Pages;
 
 namespace WardrobeAdmin
@@ -24,7 +25,7 @@ namespace WardrobeAdmin
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new MenuPages());
+            MainFrame.Navigate(new MainPages(new User()));
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -46,7 +47,7 @@ namespace WardrobeAdmin
         private void MainFrame_Navigated(object sender, NavigationEventArgs e)
         {
             var pages = (sender as Frame).Content as Page;
-            TbNamePage.Text = pages.Title;
+            TbNamePage.Text = pages.Title;w
         }
     }
 }

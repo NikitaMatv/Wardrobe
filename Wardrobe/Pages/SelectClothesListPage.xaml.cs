@@ -21,10 +21,11 @@ namespace Wardrobe.Pages
     /// </summary>
     public partial class SelectClothesListPage : Page
     {
-        public SelectClothesListPage()
+        public SelectClothesListPage() 
         {
             InitializeComponent();
-            CbWeather.ItemsSource = App.DB.Clothes.Where(x => x.UserId == App.LoggedUser.id).ToList();
+           
+            CbWeather.ItemsSource = App.DB.Weather.ToList();
             SpStart.Visibility = Visibility.Visible;
         }
 
